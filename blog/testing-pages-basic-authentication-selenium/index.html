@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Primary Meta Tags -->
+	<title>Arun Elias | Blogs | Testing Pages with Basic Authentication using Selenium</title>
+    <meta name="title" content="Arun Elias | Blogs | Testing Pages with Basic Authentication using Selenium">
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <meta name="robots" content="index, follow">
+    <meta name="language" content="English">
+
+	
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://arunelias.in/blog/testing-pages-basic-authentication-selenium/">
+    <meta property="og:title" content="Arun Elias | Blogs | Testing Pages with Basic Authentication using Selenium">
+    <meta property="og:description" content="">
+    <meta property="og:image" content="https://arunelias.in">
+
+	<!-- Twitter -->
+	<meta property="twitter:card" content="summary_large_image">
+	<meta property="twitter:url" content="https://arunelias.in/blog/testing-pages-basic-authentication-selenium/">
+	<meta property="twitter:title" content="Arun Elias | Blogs | Testing Pages with Basic Authentication using Selenium">
+	<meta property="twitter:description" content="">
+	<meta property="twitter:image" content="https://arunelias.in">
+
+	<!-- icon -->
+	<link rel="icon" type="image/png" href="/static/favicon.ico" sizes="32x32" />
+	<link rel="apple-touch-icon" href="/static/webclip.png" />
+
+	<!-- Bootstrap core CSS -->
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous" />
+	<!-- Fonts -->
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/fontawesome.min.css" />
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Righteous%7CMerriweather:300,300i,400,400i,700,700i" />
+	<!-- Custom styles for this template -->
+	<link href="/static/css/mediumish.css" rel="stylesheet">
+</head>
+
+<body>
+
+	<!-- Begin Nav -->
+	<nav class="navbar navbar-expand-lg navbar-light bg-white mediumnavigation">
+		<div class="container-fluid">
+			<a class="navbar-brand" href="/">
+				<img src="/static/img/webclip.png" width="35" height="35" alt="">
+			</a>
+			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon"></span>
+			</button>
+			<div class="collapse navbar-collapse" id="navbarNav">
+				<ul class="navbar-nav">
+					<li class="nav-item">
+						<a class="nav-link" href="/">Home</a>
+					</li>
+					<li class="nav-item active">
+						<a class="nav-link" href="/blog/">Blogs <span class="sr-only">(current)</span></a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="/#contact">Contact</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="/#privacy-policy">Privacy Policy</a>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</nav>
+	<!-- End Nav -->
+
+	<!-- Begin Article -->
+	<div class="container-fluid">
+		<div class="row">
+
+			<!-- Begin Fixed Left Share -->
+			<div class="col-md-2 col-xs-12">
+				<div class="share">
+					<ul>
+						<li><a target="_blank" href="https://www.facebook.com/arun.elias" class="facebook"><i class="fab fa-facebook" aria-hidden="true"></i></a></li>
+                        <li><a href="https://www.instagram.com/arun.testing" class="instagram"><i class="fab fa-instagram" aria-hidden="true"></i></a></li>
+                        <li><a target="_blank" href="https://twitter.com/Arun_Elias3" class="twitter"><i class="fab fa-twitter" aria-hidden="true"></i></a></li>
+                        <li><a href="https://www.linkedin.com/in/arunelias3" class="linkedin"><i class="fab fa-linkedin" aria-hidden="true"></i></a></li>
+					</ul>
+				</div>
+			</div>
+			<!-- End Fixed Left Share -->
+
+			<!-- Begin Post -->
+			<div class="col-md-8 col-md-offset-2 col-xs-12">
+				<div class="mainheading">
+					<h1 class="posttitle">Testing Pages with Basic Authentication using Selenium</h1>
+
+					<!-- Begin Top Meta -->
+					<div class="row post-top-meta">
+						<div>
+							<a rel="noopener" href="#"><img class="author-thumb" src="https://www.gravatar.com/avatar/1676f1810fce7ffb5ee032ce6dbaebeb?s=250&amp;d=mm&amp;r=x" alt="Arun"></a>
+						</div>
+						<div>
+							<div>
+								<a class="link-dark" href="#">Arun</a><a href="#" class="btn follow">Follow</a>
+							</div>
+							<span class="post-date">May 9, 2019</span><span class="dot"></span><span class="post-read">5 min read</span>
+						</div>
+					</div>
+					<!-- End Top Menta -->
+				</div>
+
+				<!-- Begin Featured Image -->
+				<img class="featured-image img-fluid" src="/static/img/Httpbin-Basic-Auth.png" alt="Featured Image">
+				<!-- End Featured Image -->
+
+				<!-- Begin Post Content -->
+				<div class="article-post">
+					<p>Sometimes pages are secured using <a rel="noreferrer noopener" aria-label="Basic HTTP Authentication (opens in a new tab)" href="https://en.wikipedia.org/wiki/Basic_access_authentication" target="_blank">Basic HTTP Authentication</a> (Basic Auth) to prevent unauthorized access. A system level pop-up prompts to enter username and password and Selenium will not be able to access it.</p>
+<p></p>
+<h4>Solution</h4>
+<p>A Chrome Add-on can be used to insert the credentials when Selenium access the Page</p>
+<ol>
+<li>Inspect (F12) the request in Network Tab of Developer tools</li>
+<li>Look fo the Authorization code in the&nbsp; <em>Request Headers</em>&nbsp;like below <br /><code>GET /basic-auth/user/passwd HTTP/1.1 <br />Host: httpbin.org <br />Connection: keep-alive <br />Authorization: Basic dXNlcjpwYXNzd2Q= </code></li>
+<li>Clone the Github <a rel="noreferrer noopener" aria-label="Repo  (opens in a new tab)" href="https://github.com/arunelias/Selenium-Chrome-Addon" target="_blank">Repo </a> <br /><code>git clone https://github.com/arunelias/Selenium-Chrome-Addon.git</code></li>
+<li>Edit the <em>background.js</em> and insert the Authorization code in the line no: 4 <br /><code>details.requestHeaders.push({name: "Authorization",value: "Basic dXNlcjpwYXNzd2Q="});</code>
+<script src="../../../../static/js/embed.js?target=https%3A%2F%2Fgithub.com%2Farunelias%2FSelenium-Chrome-Addon%2Fblob%2Fmaster%2Fbackground.js&amp;style=github&amp;showBorder=on&amp;showLineNumbers=on&amp;showFileMeta=on&amp;showCopy=on&amp;fetchFromJsDelivr=on"></script>
+</li>
+<li>Modify the Selenium code and include the folder where the <em>background.js</em> file exists</li>
+</ol>
+<p>Example:</p>
+<pre class="wp-block-preformatted">from selenium import webdriver
+# Set Chrome options. options = webdriver.ChromeOptions()
+# Modify the path of the folder
+options.add_argument('--load-extension=path/to/the/extension/folder')
+driver = webdriver.Chrome(chrome_options=options)
+driver.get('https://httpbin.org/basic-auth/user/passwd')
+# Your Code goes here...
+driver.quit()</pre>
+				</div>
+				<!-- End Post Content -->
+
+				<!-- Begin Tags -->
+				<div class="after-post-tags">
+					<ul class="tags">
+						
+						<li><a href="#">Software Testing</a></li>
+						
+						<li><a href="#">Selenium</a></li>
+						
+						<li><a href="#">Java</a></li>
+						
+						<li><a href="#">Python</a></li>
+						
+						<li><a href="#">Basic Authentication</a></li>
+						
+						<li><a href="#">Testing Automation</a></li>
+						
+					</ul>
+				</div>
+				<!-- End Tags -->
+
+			</div>
+			<!-- End Post -->
+
+		</div>
+	</div>
+	<!-- End Article -->
+
+	<div class="hideshare"></div>
+
+	<!-- Begin Related -->
+	<div class="graybg">
+		<div class="container-fluid">
+			<div class="row listrecent listrelated">
+			
+			
+			
+			
+			
+			
+
+				<!-- begin post -->
+				<div class="col-md-4">
+					<div class="card p-2">
+						<div class="card-block">
+							<h2 class="card-title"><a href="/blog/using-selenium-with-python-in-eclipse">Using Selenium with Python in Eclipse</a></h2>
+							<div class="metafooter">
+								<div class="wrapfooter">
+									<span class="meta-footer-thumb">
+										<a href="#"><img class="author-thumb" src="https://www.gravatar.com/avatar/1676f1810fce7ffb5ee032ce6dbaebeb?s=250&amp;d=mm&amp;r=x" alt="Arun"></a>
+									</span>
+									<span class="author-meta">
+										<span class="post-name"><a href="#">Arun</a></span><br />
+										<span class="post-date">May 9, 2019</span><span class="dot"></span><span class="post-read">5 min read</span>
+									</span>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<!-- end post -->
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			</div>
+		</div>
+	</div>
+	<!-- End Related Posts -->
+
+	<!-- Begin Twitter Timeline -->
+	<!-- <div class="container-fluid margtop3rem">
+			<a class="twitter-grid" href="https://twitter.com/Arun_Elias3">@Arun_Elias3</a>
+			<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+		</div> -->
+	<!-- End Twitter Timeline -->
+
+	<!-- Begin Footer -->
+	<div class="container-fluid">
+		<div class="footer">
+			<p class="pull-left">
+				Copyright &copy; 2022 Arun
+			</p>
+			<p class="pull-right">
+				Mediumish Theme by <a target="_blank" href="https://www.wowthemes.net">WowThemes.net</a>
+			</p>
+			<div class="clearfix">
+			</div>
+		</div>
+	</div>
+	<!-- End Footer -->
+
+	<!-- Bootstrap core JavaScript -->
+	<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+	<!--   Font JS Files   -->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/js/all.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js"></script>
+	<!--  Custom JS  -->
+	<!-- <script src="/static/js/mediumish.js"></script> -->
+</body>
+
+</html>
