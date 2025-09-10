@@ -185,10 +185,17 @@ span.post-read-more a {
 span.post-name a,span.post-read-more a:hover {
 	color:rgba(0,0,0,.8);
 }
-.dot:after {
+/* .dot:after {
 	content:"·";
 	margin-left:3px;
 	margin-right:3px;
+} */
+.relatedheading {
+	margin-bottom: 1rem;
+}
+.post-date::after {
+    content: " • ";
+    margin: 0 5px;
 }
 .mediumnavigation .form-control {
 	font-size:0.8rem;

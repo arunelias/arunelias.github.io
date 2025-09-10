@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Primary Meta Tags -->
+	<title>Arun Elias | Blogs | OAuth2 Authenticated Scan Using OWASP ZAP</title>
+    <meta name="title" content="Arun Elias | Blogs | OAuth2 Authenticated Scan Using OWASP ZAP">
+    <meta name="description" content="OWASP ZAP Authenticated Scanning with OAuth2 | Full Walkthrough">
+    <meta name="keywords" content="Software Testing, Open Source Software, Vulnerability Testing, Vulnerability Scanner, Web Vulnerability Testing, Security">
+    <meta name="robots" content="index, follow">
+    <meta name="language" content="English">
+
+	
+	
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://arunelias.in/blog/script-based-scan/">
+    <meta property="og:title" content="Arun Elias | Blogs | OAuth2 Authenticated Scan Using OWASP ZAP">
+    <meta property="og:description" content="OWASP ZAP Authenticated Scanning with OAuth2 | Full Walkthrough">
+    <meta property="og:image" content="https://arunelias.in/static/img/script-based-scan.jpg">
+
+	<!-- Twitter -->
+	<meta property="twitter:card" content="summary_large_image">
+	<meta property="twitter:url" content="https://arunelias.in/blog/script-based-scan/">
+	<meta property="twitter:title" content="Arun Elias | Blogs | OAuth2 Authenticated Scan Using OWASP ZAP">
+	<meta property="twitter:description" content="OWASP ZAP Authenticated Scanning with OAuth2 | Full Walkthrough">
+	<meta property="twitter:image" content="https://arunelias.in/static/img/script-based-scan.jpg">
+
+	<!-- icon -->
+	<link rel="icon" type="image/png" href="/static/favicon.ico" sizes="32x32">
+	<link rel="apple-touch-icon" href="/static/webclip.png">
+
+	<!-- Bootstrap core CSS -->
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+	<!-- Fonts -->
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/fontawesome.min.css">
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Righteous%7CMerriweather:300,300i,400,400i,700,700i">
+	<!-- Custom styles for this template -->
+	<link href="/static/css/mediumish.css?tag=442bd3ac9e0eba" rel="stylesheet">
+</head>
+
+<body>
+
+	<!-- Begin Nav -->
+	<nav class="navbar navbar-expand-lg navbar-light bg-white mediumnavigation">
+		<div class="container-fluid">
+			<a class="navbar-brand" href="/">
+				<img src="/static/img/webclip.png" width="35" height="35" alt="">
+			</a>
+			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon"></span>
+			</button>
+			<div class="collapse navbar-collapse" id="navbarNav">
+				<ul class="navbar-nav">
+					<li class="nav-item">
+						<a class="nav-link" href="/">Home</a>
+					</li>
+					<li class="nav-item active">
+						<a class="nav-link" href="/blog/">Blogs <span class="sr-only">(current)</span></a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="/#contact">Contact</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="/#privacy-policy">Privacy Policy</a>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</nav>
+	<!-- End Nav -->
+
+	<!-- Begin Article -->
+	<div class="container-fluid">
+		<div class="row">
+
+			<!-- Begin Fixed Left Share -->
+			<div class="col-md-2 col-xs-12">
+				<div class="share">
+					<ul>
+						<li><a target="_blank" href="https://www.facebook.com/arun.elias" class="facebook"><i class="fab fa-facebook" aria-hidden="true"></i></a></li>
+                        <li><a href="https://www.instagram.com/arun.testing" class="instagram"><i class="fab fa-instagram" aria-hidden="true"></i></a></li>
+                        <li><a target="_blank" href="https://twitter.com/Arun_Elias3" class="twitter"><i class="fab fa-twitter" aria-hidden="true"></i></a></li>
+                        <li><a href="https://www.linkedin.com/in/arunelias3" class="linkedin"><i class="fab fa-linkedin" aria-hidden="true"></i></a></li>
+					</ul>
+				</div>
+			</div>
+			<!-- End Fixed Left Share -->
+
+			<!-- Begin Post -->
+			<div class="col-md-8 col-md-offset-2 col-xs-12">
+				<div class="mainheading">
+					<h1 class="posttitle">OAuth2 Authenticated Scan Using OWASP ZAP</h1>
+
+					<!-- Begin Top Meta -->
+					<div class="row post-top-meta">
+						<div>
+							<a rel="noopener" href="#"><img class="author-thumb" src="https://www.gravatar.com/avatar/1676f1810fce7ffb5ee032ce6dbaebeb?s=250&amp;d=mm&amp;r=x" alt="Arun"></a>
+						</div>
+						<div>
+							<div>
+								<a class="link-dark" href="#">Arun</a><a href="#" class="btn follow">Follow</a>
+							</div>
+							<span class="post-date">February 23, 2025</span>
+							<span class="post-read">5 min read</span>
+						</div>
+					</div>
+					<!-- End Top Menta -->
+				</div>
+
+				<!-- Begin Featured Image -->
+				<img class="featured-image img-fluid" src="/static/img/script-based-scan.jpg" alt="Featured Image">
+				<!-- End Featured Image -->
+
+				<!-- Begin Post Content -->
+				<div class="article-post">
+					<p>🔐 <strong>OWASP ZAP Authenticated Scanning with OAuth2 | Full Walkthrough</strong><br>In this video, we dive deeper into authenticated vulnerability scanning using <strong>OWASP ZAP</strong>, focusing on applications secured with <strong>OAuth2</strong>.</p>
+<p>Learn how to perform authenticated scans using real user credentials, enabling access to protected endpoints and pages that are typically restricted to logged-in users. We'll guide you through:</p>
+<p>✅ Setting up <strong>Script-based Authentication</strong> to handle the OAuth2 login flow<br>✅ Implementing an <strong>HTTP Sender Script</strong> to modify outgoing requests, ensuring ZAP maintains the authenticated session<br>✅ Performing a comprehensive vulnerability scan on an OAuth2-protected application</p>
+<p>This hands-on demonstration is ideal for penetration testers, developers, and security enthusiasts looking to strengthen their understanding of authenticated scanning using ZAP.</p>
+<hr>
+<p>📌&nbsp;<strong>Tools Used:</strong></p>
+<ul>
+<li>OWASP ZAP</li>
+<li>OAuth2 Provider: Okta</li>
+</ul>
+<hr>
+<p><iframe width="720" height="405" src="https://www.youtube.com/embed/Jgp1f242B-k?si=f6ZaZRoczpyAQBYc" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen="allowfullscreen"></iframe></p>
+<hr>
+<p>Scripts Used:</p>
+<script src="https://gist.github.com/arunelias/a6a7c83c027b9292bd068169423dfd8a.js"></script>
+<script src="https://gist.github.com/arunelias/c7b37ac9ec32edee7dd11292a9488411.js"></script>
+				</div>
+				<!-- End Post Content -->
+
+				<!-- Begin Tags -->
+				<div class="after-post-tags">
+					<ul class="tags">
+						
+						<li><a href="#">Software Testing</a></li>
+						
+						<li><a href="#">Open Source Software</a></li>
+						
+						<li><a href="#">Vulnerability Testing</a></li>
+						
+						<li><a href="#">Vulnerability Scanner</a></li>
+						
+						<li><a href="#">Web Vulnerability Testing</a></li>
+						
+						<li><a href="#">Security</a></li>
+						
+					</ul>
+				</div>
+				<!-- End Tags -->
+
+			</div>
+			<!-- End Post -->
+
+		</div>
+	</div>
+	<!-- End Article -->
+
+	<div class="hideshare"></div>
+
+	<!-- Begin Related -->
+	<div class="graybg">
+		<div class="container-fluid">
+			<h3 class="relatedheading">Related Posts</h3>
+			<div class="row listrecent listrelated">
+			
+				<!-- begin post -->
+				<div class="col-md-4">
+					<div class="card p-2">
+						<div class="card-block">
+							<h2 class="card-title"><a href="/blog/form-based-scan/">Authenticated Scan using OWASP ZAP</a></h2>
+							<div class="metafooter">
+								<div class="wrapfooter">
+									<span class="meta-footer-thumb">
+										<a href="#"><img class="author-thumb" src="https://www.gravatar.com/avatar/1676f1810fce7ffb5ee032ce6dbaebeb?s=250&amp;d=mm&amp;r=x" alt="Arun"></a>
+									</span>
+									<span class="author-meta">
+										<span class="post-name"><a href="#">Arun</a></span><br>
+										<span class="post-date">May 21, 2023</span>
+										<span class="post-read">5 min read</span>
+									</span>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<!-- end post -->
+			
+				<!-- begin post -->
+				<div class="col-md-4">
+					<div class="card p-2">
+						<div class="card-block">
+							<h2 class="card-title"><a href="/blog/vulnerability-scanning-using-ironwasp/">Vulnerability Scanning using IronWASP</a></h2>
+							<div class="metafooter">
+								<div class="wrapfooter">
+									<span class="meta-footer-thumb">
+										<a href="#"><img class="author-thumb" src="https://www.gravatar.com/avatar/1676f1810fce7ffb5ee032ce6dbaebeb?s=250&amp;d=mm&amp;r=x" alt="Arun"></a>
+									</span>
+									<span class="author-meta">
+										<span class="post-name"><a href="#">Arun</a></span><br>
+										<span class="post-date">October 23, 2018</span>
+										<span class="post-read">20 min read</span>
+									</span>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<!-- end post -->
+			
+				<!-- begin post -->
+				<div class="col-md-4">
+					<div class="card p-2">
+						<div class="card-block">
+							<h2 class="card-title"><a href="/blog/imacros-snippets/">iMacros Snippets</a></h2>
+							<div class="metafooter">
+								<div class="wrapfooter">
+									<span class="meta-footer-thumb">
+										<a href="#"><img class="author-thumb" src="https://www.gravatar.com/avatar/1676f1810fce7ffb5ee032ce6dbaebeb?s=250&amp;d=mm&amp;r=x" alt="Arun"></a>
+									</span>
+									<span class="author-meta">
+										<span class="post-name"><a href="#">Arun</a></span><br>
+										<span class="post-date">November 24, 2017</span>
+										<span class="post-read">20 min read</span>
+									</span>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<!-- end post -->
+			
+			</div>
+		</div>
+	</div>
+	<!-- End Related Posts -->
+
+	<!-- Begin Twitter Timeline -->
+	<!-- <div class="container-fluid margtop3rem">
+			<a class="twitter-grid" href="https://twitter.com/Arun_Elias3">@Arun_Elias3</a>
+			<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+		</div> -->
+	<!-- End Twitter Timeline -->
+
+	<!-- Begin Footer -->
+	<div class="container-fluid">
+		<div class="footer">
+			<p class="pull-left">
+				Copyright &copy; 2025 Arun
+			</p>
+			<p class="pull-right">
+				Mediumish Theme by <a target="_blank" href="https://www.wowthemes.net">WowThemes.net</a>
+			</p>
+			<div class="clearfix">
+			</div>
+		</div>
+	</div>
+	<!-- End Footer -->
+
+	<!-- Bootstrap core JavaScript -->
+	<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+	<!--   Font JS Files   -->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/js/all.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js"></script>
+	<!--  Custom JS  -->
+	<!-- <script src="/static/js/mediumish.js"></script> -->
+</body>
+
+</html>
